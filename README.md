@@ -1,11 +1,21 @@
-# VIDGET for macOS Apple Silicon
+# VIDGET releases
 
-Download the app ZIP from [the latest release](https://github.com/tiennguyenbrb196-sys/vidget-releases/releases/latest), unzip, copy VIDGET.app into `~/Applications`, and open it. First installation may need approval in macOS Privacy & Security. The app is signed with Apple Development and is not notarized.
+Official macOS Apple Silicon builds, macOS 13 or later. This repository contains installation/update binaries and instructions, not the development project, user data, signing keys or test media. Electron app bundles include their executable JavaScript/runtime assets and can be inspected.
 
-Version 0.4.0 (build 4) is the bootstrap for signed in-app updates. Older installations need this version or newer installed once. Then use Settings → Cập nhật app or the app menu → Kiểm tra cập nhật. Clients do not need GitHub login. Checks run every six hours; downloading automatically is optional. Installation waits while downloading/processing files or playing media. Local settings, download history, playlists and library stay in the same profile.
+## Install
 
-Update metadata and app archives carry Ed25519 signatures; the public key is embedded in the app. A valid SHA256 alone does not authorize an update. Apple code signing is also verified by the native installer. Release artifacts are immutable and build numbers only increase.
+Download the **VIDGET 0.5.0 macOS arm64 PKG** from [the latest release](https://github.com/tiennguyenbrb196-sys/vidget-releases/releases/latest). Quit older copies of VIDGET before installation. The package installs into `~/Applications/VIDGET.app` for your current account; no administrator access, GitHub login, Homebrew or developer tools are required. Open that installed copy after installation.
 
-This repository contains release artifacts and instructions, not the development project, tests, Git history or signing keys. VIDGET is an Electron application: distributed app bundles include JavaScript/runtime assets and can be inspected. A private source repository is not copy protection.
+The official app and installer are Developer ID signed and notarized by Apple. Downloads, library, playlists, favorites, ratings, playback position and settings are stored outside the app bundle and retained.
 
-Bundled third-party software includes Electron/Chromium, Node.js, yt-dlp, FFmpeg and libraries. Their licenses are included in the app. FFmpeg build is GPL; source and build formula: https://ffmpeg.org/download.html and https://formulae.brew.sh/formula/ffmpeg . yt-dlp: https://github.com/yt-dlp/yt-dlp . No credentials, user profiles or downloaded test media are included in releases.
+**Users of 0.4.x:** install the first official PKG once. The older Apple Development release uses a different signing team, so a native update from 0.4.x to the official Developer ID build is not supported. After the first official installation, subsequent builds use the same Developer ID trust.
+
+## Updates
+
+In VIDGET, open **Cài đặt → Cập nhật app** or the application menu **Kiểm tra cập nhật**. Automatic checks run every six hours while the app is running and idle; automatic downloads are optional. Choose when to install. Install/relaunch waits for download/Studio tasks and active media playback to stop.
+
+Update metadata and the entire ZIP are independently signed with Ed25519. The app verifies the embedded key, SHA256, size, repository URL, bundle ID/architecture and increasing build, then the native macOS installer verifies Apple code signatures. Clients do not need GitHub credentials or the private source repository.
+
+Assets: first-install PKG, app/update ZIP, signed `update.json`, SHA256SUMS.txt. Updates use ZIP, not PKG for each version. Published assets are immutable; fixes use a higher build number. A source push alone does not update client machines.
+
+Real build-machine package/signature/notarization checks do not replace acceptance on a second physical Mac. Download support varies by website; DRM is not supported.

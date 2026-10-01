@@ -1,5 +1,7 @@
 # VIDGET releases
 
+**VIDGET is developed by 9,6Hz Agency.**
+
 Official macOS Apple Silicon builds, macOS 13 or later. This repository contains installation/update binaries and instructions, not the development project, user data, signing keys or test media. Electron app bundles include their executable JavaScript/runtime assets and can be inspected.
 
 ## Install
